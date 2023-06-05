@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
+
+    <title>Home</title>
+</head>
+
+<body onload="checkNight()">
+
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <!-- <div class="menu">
+                            <i class="bi bi-list"></i>
+                        </div> -->
+                        <div class="logo">
+                            <a href="INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png"
+                                    alt="logo" id="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="search-holder">
+                        <input type="text" class="searchbox">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                   
+                </div> -->
+
+            </div>
+        </div>
+
+
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="INDEX.html">Home</a></li>
+            <li><a href="BUDGET.html">Budget</a></li>
+            <li><a href="SPENDING INPUT.html">Spending</a></li>
+            <li><a href="SUMMARIES.html">Summaries</a></li>
+            <li><a href="ABOUTUS.html">About us</a></li>
+        </ul>
+    </div>
+
+    <!--Main Menu end-->
+
+    <!--Body-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!--Left-sidebar-->
+                <div class="col-md-2 border-right">
+                    <div class="sidebar">
+                        <ul class="list-menu">
+                            <li>
+                                <a href="ACCOUNT.html">Account</a>
+                            </li>
+
+                            <li>
+                                <a href="SETTINGS.html">Settings</a>
+                            </li>
+                        </ul>
+
+                        <div class="logout-section">
+                            <ul class="list-menu">
+                                <li> <a href="LOGIN.html">Sign Out</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--Left-sidebar end-->
+
+                <!--Mid-sidebar-->
+                <div class="col-md-6">
+
+                    <div class="card-panel shadow mt-5 mb-3">
+                        <div class="box-content" style>
+                            <p class="text-center"><big>$weekly spending graph$</big></p>
+                        </div>
+                        <h2 class="text-center">You've Spent XXXX this week </h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="SPENDING INPUT.html" style="text-decoration: none; color: black;">
+                                <div class="card-panel shadow mb-3">
+                                    <h2 class="text-center">Log Spendings</h2>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="BUDGET.html" style="text-decoration: none; color: black">
+                            <div class="card-panel shadow mb-3">
+                                <h2 class="text-center">Your budget is </h2>
+                                <h2 id="output1" class="text-center">XXXX</h2>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--Mid-sidebar-->
+
+
+                <!--Right-sidebar-->
+                <div class="col-md-4">
+
+                    <a href="SUMMARIES.html" style="text-decoration: none; color: black">
+                    <div class="card-panel shadow mt-5 mb-3">
+                        <div class="box-content">
+                            <p class="text-center"><big>$This is a graph$</big></p>
+                        </div>
+                        <h2 class="text-center mt-3">You've Saved XXXX last month </h2>
+                    </div>
+                    </a>
+
+                </div>
+                <!--Right-sidebar end-->
+            </div>
+        </div>
+
+    </section>
+
+    <!--Body end-->
+
+    <!--Footer-->
+    <footer>
+    </footer>
+    <!--Footer End-->
+
+
+    <!--script src="js/bootstrap.bundle.min.js" ></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
+
+    <title>Spending Input</title>
+  </head>
+  <body onload="StartUp()">
+
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <!-- <div class="menu">
+                            <i class="bi bi-list"></i>
+                        </div> -->
+                        <div class="logo">
+                            <a href="INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png" alt="logo" id="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="INDEX.html">Home</a></li>
+            <li><a href="BUDGET.html">Budget</a></li>
+            <li><a href="SPENDING INPUT.html">Spending</a></li>
+            <li><a href="SUMMARIES.html">Summaries</a></li>
+            <li><a href="ABOUTUS.html">About us</a></li>
+        </ul>
+    </div>
+
+     <!--Main Menu end-->
+
+    <!--Body-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!--Left-sidebar-->
+                <div class="col-md-2 border-right">
+                    <div class="sidebar">
+                        <ul class="list-menu">
+                            <li>
+                                <a href="ACCOUNT.html">Account</a>
+                            </li>
+
+                            <li>
+                                <a href="SETTINGS.html">Settings</a>
+                            </li>
+                        </ul>
+
+                        <div class="logout-section">
+                            <ul class="list-menu">
+                                <li> <a href="LOGIN.html">Sign Out</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--Left-sidebar end-->
+                <!--Mid-sidebar-->
+                <div class="col-md-5">
+                    <div class="card-panel shadow mt-1 mb-3">
+                        <h2 class="text-center mt-3">Add a payment? </h2>
+                        <center>
+                            £<input style="margin:10px;" class="card-panel" type="number" min="0" aria-describedby="emailHelp" placeholder="£££" id="SinglePaymentInput" pattern="^\d*(\.\d{0,2})?$" onkeydown="javascript: return event.keyCode === 8 ||
+                            event.keyCode === 46 || event.keyCode === 190 || event.keyCode === 110? true : !isNaN(Number(event.key))">
+                            <btn style="margin:10px;" class="btn btn-primary" onclick="SubmitSinglePayment();" type="submit" id="adjust">Enter</btn>
+                        </center>
+                    </div>
+                    <div style="width: 100%; float:left;" class="card-panel shadow mt-1 mb-3">
+                        <h2 class="text-center">Previous Payments</h2>
+                        <center>
+                            <div id="singlePayment" style="width: 50%; height: 50%; float:left;" class="card-panel md-5">
+                                <h2 class="text-center">Amount: </h2>
+
+                            </div>
+                            <div id="singleDate" style="width: 50%; height: 50%; float:right;" class="card-panel md-5">
+                                <h2 class="text-center">Date Submitted:</h2>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <!--Mid-sidebar-->
+                <!--Right-sidebars-->
+                <div class="col-md-5">
+                    <div class="card-panel shadow mt-1 mb-3">
+                        <h2 class="text-center">Set up a recurring payment</h2>
+                        <center>
+                            £<input style="margin:10px;" class="card-panel" type="number" min="0" aria-describedby="emailHelp" placeholder="£££" id="RecurringPaymentInput" pattern="^\d*(\.\d{0,2})?$" onkeydown="javascript: return event.keyCode === 8 ||
+                            event.keyCode === 46 || event.keyCode === 190 || event.keyCode === 110? true : !isNaN(Number(event.key))">
+                            <btn style="margin:10px;" class="btn btn-primary" onclick="SubmitRecurringPaymentM();" type="submit" id="btn2">Enter Monthly</btn>
+                            <btn style="margin:10px;" class="btn btn-primary" onclick="SubmitRecurringPaymentY();" type="submit" id="btn1">Enter Yearly</btn>
+                        </center>
+                        <center>
+                            <text class="text-center">*These will add to your total spending for each year/month automatically</text>
+                        </center>
+                    </div>
+                    <div style="width: 100%; float:right;" class="card-panel shadow mt-1 mb-3">
+                        <h2 class="text-center">Reccuring payments</h2>
+                        <center>
+                            <div id="recurringPayment" style="width: 50%; height: 50%; float:left;" class="card-panel md-5">
+                                <h2 class="text-center">Amount: </h2>
+                            </div>
+                            <div id="recurringLoop" style="width: 50%; height: 50%; float:right;" class="card-panel md-5">
+                                <h2 class="text-center">Recurrence: </h2>
+                            </div>
+                        </center>
+                    </div>                                           
+                </div>
+                <!--Right-sidebars end-->
+            </div>
+        </div>
+
+    </section>
+
+    <!--Body end-->
+
+    <!--Footer-->
+    <footer>
+
+    </footer>
+
+     <!--Footer End-->
+
+
+    <!--script src="js/bootstrap.bundle.min.js" ></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="js/custom.js" ></script>
+    <script>
+        var globalUserId = localStorage.getItem("userId");
+        function SubmitSinglePayment(){
+            var inputValue = document.getElementById("SinglePaymentInput").value;
+            $.post("http://localhost:8080/newSinglePayment", {amount : parseFloat(inputValue), userId : globalUserId}).done(document.getElementById("SinglePaymentInput").value = "");
+            location.reload();
+            }
+        function SubmitRecurringPaymentM(){
+            var inputValue = document.getElementById("RecurringPaymentInput").value;
+            $.post("http://localhost:8080/newRecurringPayment", {amount : parseFloat(inputValue), userId : globalUserId, recurrence : "Monthly"}).done(document.getElementById("RecurringPaymentInput").value = "");
+            location.reload();
+            }
+        function SubmitRecurringPaymentY(){
+            var inputValue = document.getElementById("RecurringPaymentInput").value;
+            $.post("http://localhost:8080/newRecurringPayment", {amount : parseFloat(inputValue), userId : globalUserId, recurrence : "Yearly"}).done(document.getElementById("RecurringPaymentInput").value = "");
+            location.reload();
+             }
+        function GetSinglePayment(){
+            $.get("http://localhost:8080/findSinglePayment", {userid : globalUserId}).done(function(Single_Payment){
+                Single_Payment.reverse().forEach(function(singlePayment){
+                    DisplaySingleAmount(singlePayment);
+                    DisplaySingleDate(singlePayment);
+                })
+            })
+        }
+        function GetRecurringPayments(){
+            $.get("http://localhost:8080/findRecurringPayments", {userId : globalUserId}).done(function(Recurring_Payment){
+                Recurring_Payment.forEach(function(recurringPayment){
+                    DisplayRecurringAmount(recurringPayment);
+                    DisplayRecurringLoop(recurringPayment);
+                    console.log(recurringPayment);
+                })
+            })
+        }
+        function DisplaySingleAmount(singlePayment){
+            const line = document.createElement("hr");
+            const para = document.createElement("p");
+            const paymentAmount = document.createTextNode("£" + singlePayment.paymentAmount);
+            para.appendChild(paymentAmount);
+            const paymentAmountList = document.getElementById("singlePayment");
+            paymentAmountList.appendChild(line);
+            paymentAmountList.appendChild(para);
+        }
+        function DisplaySingleDate(singlePayment){
+            const line = document.createElement("hr");
+            const para = document.createElement("p");
+            const paymentDate = document.createTextNode(singlePayment.createdAt);
+            para.appendChild(paymentDate);
+            const paymentAmountList = document.getElementById("singleDate");
+            paymentAmountList.appendChild(line);
+            paymentAmountList.appendChild(para);
+        }
+        function DisplayRecurringAmount(recurringPayment){
+            const line = document.createElement("hr");
+            const para = document.createElement("p");
+            const paymentAmount = document.createTextNode("£" + recurringPayment.paymentAmount);
+            para.appendChild(paymentAmount);
+            const paymentAmountList = document.getElementById("recurringPayment");
+            paymentAmountList.appendChild(line);
+            paymentAmountList.appendChild(para);
+            para.style.cursor = "pointer";
+            para.addEventListener("click", function(){
+                deleteEntry(recurringPayment.id)
+            });
+        }
+        function DisplayRecurringLoop(recurringPayment){
+            const line = document.createElement("hr");
+            const para = document.createElement("p");
+            const paymentLoop = document.createTextNode(recurringPayment.recurrence);
+            para.appendChild(paymentLoop);
+            const paymentAmountList = document.getElementById("recurringLoop");
+            paymentAmountList.appendChild(line);
+            paymentAmountList.appendChild(para);
+            para.style.cursor = "pointer";
+            para.addEventListener("click", function(){
+                deleteEntry(recurringPayment.id)
+            });
+        }
+        function StartUp(){
+            console.log(localStorage.getItem("lastuser"));
+            checkNight();
+            GetSinglePayment();
+            GetRecurringPayments();
+        }
+        function deleteEntry(ID){
+            $.post("http://localhost:8080/deleteRecurringPayment", {Id : ID}).done (location.reload());
+        }
+        </script>
+  </body>
+</html>

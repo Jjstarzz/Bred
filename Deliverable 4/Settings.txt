@@ -1,0 +1,7 @@
+Settings Page
+
+- Notifications On/Off 
+- Currency
+- Location
+- Display setting (Light / dark mode)
+- Accessibility 

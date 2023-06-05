@@ -1,0 +1,144 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login Page</title>
+  </head>
+  <body onload="checkNight();getLastUser();">
+  <body2>
+    <font color="white">
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <div class="menu">
+                           <!-- <i class="bi bi-list"></i> -->
+                        </div>
+                        <div class="logo">
+                            <a href="INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png" width="100" id="logo" height="auto" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="search-holder">
+                        <input type="text" class="searchbox">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                   
+                </div> -->
+
+            </div>
+        </div>
+
+        
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="#" onclick="alert('You need to log-in first');">Home</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Budget</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Spending</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Summaries</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">About us</a></li>
+        </ul>
+    </div>
+     <!--Main Menu end-->
+
+    
+<!--Login Section-->
+
+<form>
+    <h1>Log In</h1>
+    <div class="form-group">
+        <input type="text" class="card-panel" id="InputUsername" aria-describedby="emailHelp" placeholder="Username..." style="color:rgb(121, 121, 121);">
+    </div>
+    <div class="form-group">
+      <input type="password" class="card-panel" id="InputPassword" placeholder="Password..." style="color:rgb(121, 121, 121);">
+    </div>
+    <!-- <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">I'm not a robot</label>
+    </div> -->
+    <a id="loginbutton" class="btn btn-primary" onclick="ValidateUser()">Login</a>
+    <a href='SIGN UP PAGE.html'; id="signupbutton" style="margin:10px;" class="btn btn-primary2">Sign Up</a>
+</form>
+
+<!--<div class="container">
+    <h1 style="margin-top:100px;" class="text-center">Log In</h1>
+        <form>
+            <center><input th:field="*{username}" style="margin:10px;" class="card-panel" type="text" placeholder="Username..."></center>
+        
+            <center><input th:field="*{password}" style="margin:10px;" class="card-panel" type="password" placeholder="Password..."></center>
+        
+            <center><btn style="margin:10px;" class="btn btn-primary" onclick="location.href='INDEX.html';" type="submit">Login</button></center>
+
+            <center><btn style="margin:10px;" class="btn btn-primary" onclick="location.href='SIGN UP PAGE.html';" type="submit">Sign Up</button></center>
+        </form>
+</div>-->
+<!--Login-Section end-->
+<button style="background-color: transparent; position: absolute; bottom: 25; right: 25; width: 40px; text-align:middle;" onclick="darkMode()" >
+    <img src="..//nightmodeicon.png" width="25" height="25";>
+</button>
+<div style="position: absolute; bottom: 0; right: 0; width: 100px; text-align:right; color:rgb(121, 121, 121);">
+    Bred™ 2022
+  </div>
+<!--Footer-->
+<footer>
+</footer>
+ <!--Footer End-->
+ <script>
+    function ValidateUser(){
+        var userName = document.getElementById("InputUsername").value;
+        var passWord = document.getElementById("InputPassword").value;
+        $.get("http://localhost:8080/validateLogin", {username : userName, password : passWord}).done(function(userId){
+            if (userId){
+                setLastUser();
+                currentUserID(userId.id);
+                window.location = "index.html"
+            }
+            else{
+                alert("Invalid username or password. Please try again.");
+            }
+        })
+    }
+    function currentUserID(userId){
+        localStorage.setItem("userId", userId);
+    }
+    
+    
+    function setLastUser(){
+    var lastusername = document.getElementById("InputUsername").value;
+    localStorage.setItem("lastuser", lastusername);
+
+    }
+    
+    function getLastUser(){
+        document.getElementById("InputUsername").value=localStorage.getItem("lastuser");
+        localstorage.setItem("userId", 0);
+         }
+ </script>
+
+<!--script src="js/bootstrap.bundle.min.js" ></script!-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="js/custom.js" ></script>
+ </font>
+</body2>
+</body>
+</html>

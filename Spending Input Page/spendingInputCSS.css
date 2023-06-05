@@ -1,0 +1,194 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background: white;
+    font-family: 'Segoe UI';
+}
+
+.topnav {
+    background-color: white;
+    list-style-type: none;
+
+}
+
+.topOptions {
+    float: left;
+    width: 20%;
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+}
+
+.logo {
+    position: relative;
+    left: 4cm;
+    top: 1.3cm;
+    width: 200px;
+}
+
+.hamburgerMenu {
+    position: relative;
+    width: 1.5cm;
+    left: 3cm;
+    bottom: 0.7cm;
+}
+
+.topOptions a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-family: 'Segoe UI';
+    width: 100%;
+    text-decoration: none;
+    font-size:larger;
+}
+
+.topOptions a:hover {
+    background-color: grey;
+    transition-duration: 0s;
+}
+
+.searchbar {
+    position: relative;
+    float: right;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    width: 10cm;
+    height: 0.8cm;
+    padding: 6px;
+    margin: 20px;
+    font-family: 'Segoe UI';
+    top: 2cm;
+}
+
+.leftOptions {
+    padding-top: 5%;
+    padding-bottom: 35%;
+    width: 20%;
+    border-right: 2px solid grey;
+}
+
+.leftOptions a {
+    text-decoration: none;
+    font-family: 'Segoe UI';
+    display: block;
+    color: black;
+    text-align: center;
+    font-size: larger;
+}
+
+.leftOptions a:hover {
+    background-color: grey;
+    transition-duration: 0.3s;
+    text-align: center;
+}
+
+.nonsignout {
+    position: relative;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.signout {
+    position: absolute;
+    bottom: 0.5%;
+    left: 0.5%;
+}
+
+.currentBudget {
+    position: relative;
+    font-family: 'Segoe UI';
+    text-align: center;
+    bottom: 3.5cm;
+    left: 12cm;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    width: 17cm;
+    height: 6cm;
+}
+
+.currentBudget p {
+    font-size: 33px;
+    font-weight: 500;
+    margin: 55px;
+}
+
+.adjustButton {
+    position: relative;
+    left: 13.3cm;
+    top: -0.4cm;
+    border: 2px solid grey ;
+    width: 3cm;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.newBudget {
+    position: relative;
+    font-family: 'Segoe UI';
+    text-align: center;
+    bottom: 8cm;
+    left: 29.5cm;
+    width: 7cm;
+    height: 4.4cm;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    
+}
+.newBudget p {
+    position: relative;
+    bottom: 0.5cm;
+    font-size: 22px;
+}
+
+.inputBudget {
+    position: relative;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    height: 1cm;
+    width: 6cm;
+    bottom: 0.5cm;
+}
+
+.confirmButton {
+    text-align: center;
+    position: relative;
+    left: 1.8cm;
+    bottom: -0.2cm ;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    width: 3.5cm;
+}
+
+.moneyPercent {
+    position: relative;
+    font-family: 'Segoe UI';
+    text-align: center;
+    bottom: 7cm;
+    left: 12cm;
+    border: 2px solid grey ;
+    border-radius: 20px;
+    width: 9cm;
+    height: 7cm;
+}
+
+.moneyPercent p {
+    position: relative;
+    top: 2cm;
+    font-size: 25px;
+}
+
+.allocationButton {
+    position: relative;
+    top: 1.8cm;
+    left: 2cm;
+    border: 2px solid grey ;
+    border-radius: 15px;
+    width: 5cm;
+    height: 1cm;
+
+}

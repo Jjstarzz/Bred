@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Budget</title>
+  </head>
+  <body>
+
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <div class="menu">
+                            <i class="bi bi-list"></i>
+                        </div>
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/logo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="search-holder">
+                        <input type="text" class="searchbox">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+
+        
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Budget</a></li>
+            <li><a href="#">Spending</a></li>
+            <li><a href="#">Summaries</a></li>
+            <li><a href="#">About us</a></li>
+        </ul>
+    </div>
+
+     <!--Main Menu end-->
+
+    <!--Body-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!--Left-sidebar-->
+                <div class="col-md-2 border-right">
+                    <div class="sidebar">
+                        <ul class="list-menu">
+                                <li>
+                                    <a href="account.html">Account</a>
+                                </li>
+    
+                                <li>
+                                    <a href="#">Settings</a>
+                                </li>
+                        </ul>
+    
+                        <div class="logout-section">
+                            <ul class="list-menu">
+                                <li> <a href="#">Sign Out</a></li>
+                            </ul>
+                            
+                        </div>
+                        </div>
+
+                </div>
+                 <!--Left-sidebar end-->
+
+                <!--Mid-sidebar-->
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+
+                    <div class="card-panel shadow mt-5 mb-3"> <!--Current monthly budget card-->
+                        <h2 class="text-center"></h2>
+                        <h2 class="text-center mt-4">Your current monthly budget is</h2>
+                        <h2 class="text-center">XXXX</h2>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-outline-dark btn-sm">Adjust</button>
+                        </div>
+                     
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6"> 
+                            <div class="card-panel shadow mb-3"> <!--Money allocation card-->
+                                <div class="box-content"></div>
+                                <h3 class="text-center">XX% - Spending Money</h3>
+                                <h3 class="text-center">XX% - Reserved Money</h3>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark btn-sm">Change Allocation</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!--Mid-sidebar-->
+
+
+                <!--Right-sidebar-->
+                <div class="col-md-3">
+
+                    <div class="card-panel shadow mt-5 mb-3"> <!--new budget card-->
+                        <h4 class="text-center">Enter new budget</h4>
+                        <input type="text" class="searchbox mb-2">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-dark btn-sm">Confirm</button>
+                        </div>
+
+                </div>
+                <!--Right-sidebar end-->
+            </div>
+        </div>
+
+    </section>
+
+    <!--Body end-->
+
+    <!--Footer-->
+    <footer>
+
+    </footer>
+
+     <!--Footer End-->
+
+
+    <script src="js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="js/custom.js" ></script>
+   
+  </body>
+</html>

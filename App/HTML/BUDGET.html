@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/budget.css" rel="stylesheet">
+
+    <title>Budget</title>
+  </head>
+  <body onload="checkNight()">
+
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <!-- <div class="menu">
+                            <i class="bi bi-list"></i>
+                        </div> -->
+                        <div class="logo">
+                            <a href="/HTML/INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png" alt="logo" id="logo"> 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="search-holder">
+                        <input type="text" class="searchbox">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                   
+                </div> -->
+
+            </div>
+        </div>
+
+        
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="INDEX.html">Home</a></li>
+            <li><a href="BUDGET.html">Budget</a></li>
+            <li><a href="SPENDING INPUT.html">Spending</a></li>
+            <li><a href="SUMMARIES.HTML">Summaries</a></li>
+            <li><a href="ABOUTUS.html">About us</a></li>
+        </ul>
+    </div>
+     <!--Main Menu end-->
+
+    <!--Body-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!--Left-sidebar-->
+                <div class="col-md-2 border-right">
+                    <div class="sidebar">
+                        <ul class="list-menu">
+                                <li>
+                                    <a href="ACCOUNT.html">Account</a>
+                                </li>
+    
+                                <li>
+                                    <a href="SETTINGS.html">Settings</a>
+                                </li>
+                        </ul>
+    
+                        <div class="logout-section">
+                            <ul class="list-menu">
+                                <li> <a href="LOGIN.html">Sign Out</a></li>
+                            </ul>
+                            
+                        </div>
+                        </div>
+
+                </div>
+                 <!--Left-sidebar end-->
+
+                <!--Mid-sidebar-->
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+
+                    <div class="card-panel shadow mt-5 mb-3"> <!--Current monthly budget card-->
+                        <h2 class="text-center"></h2>
+                        <h2 class="text-center">Your current monthly budget is</h2>
+                        <h2 id="output1" class="text-center">£ 1000</h2>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-outline-dark btn-sm" id="adjust">Adjust</button>
+                        </div>
+                     
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7"> 
+                            <div class="card-panel shadow mb-3"> <!--Money allocation card-->
+                                <div class="slideContainer">
+                                    <input type="range" min="0" max="100" value="0" id="myRange" class="slider">
+                                    <p style="color:rgb(121, 121, 121);">Spending Money : <span id="value"></span></p>
+                                    <p2 style="color:rgb(121, 121, 121);">Reserved Money : <span id="secondValue"></span></p>
+                                        <p id="demo"></p>
+                                        <p id="demo1"></p>
+                                        <p id="demo2"></p>
+                                        <p id="demo3"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button id="btn2" type="button" onclick="myFunction()" class="btn btn-outline-dark btn-sm">Confirm Allocation</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!--Mid-sidebar-->
+
+
+                <!--Right-sidebar-->
+                <div class="col-md-3">
+
+                    <div class="card-panel shadow mt-5 mb-3">
+                    <h4 class="text-center">Enter new budget</h4>
+                    £<input style="margin:12px; margin-left: 38px;" class="card-panel" type="number" min="0" aria-describedby="emailHelp" placeholder="£££" id="BudgetInput" pattern="^\d*(\.\d{0,2})?$" onkeydown="javascript: return event.keyCode === 8 ||event.keyCode === 46 || event.keyCode === 190 || event.keyCode === 110? true : !isNaN(Number(event.key))">
+                    <div class="text-center">
+                        <btn style="margin:10px;" class="btn btn-primary" onclick="SubmitBudget();" type="submit" id="btn1">Confirm</btn>
+                    </div>
+
+                </div>
+                <!--Right-sidebar end-->
+            </div>
+        </div>
+
+    </section>
+
+    <!--Body end-->
+
+    <!--Footer-->
+    <footer>
+
+    </footer>
+
+     <!--Footer End-->
+
+
+    <!--script src="js/bootstrap.bundle.min.js" ></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="js/custom.js" ></script>
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("value"); // Spending Money %
+        var reserved = document.getElementById("secondValue"); // Reserved Money %
+        value.color="white";
+        
+
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value + '%';
+            reserved.innerHTML = 100 - this.value + '%';
+       }
+        slider.addEventListener("mousemove", function(){
+        var x = slider.value;
+        var color = 'linear-gradient(90deg, rgb(15, 13, 13)' + x +'%,rgb(214,214,214)' + x + '%)';
+        slider.style.background = color;
+        })
+
+ </script>
+
+ <script>
+     const txt1 = document.getElementById("BudgetInput");
+     const btn1 = document.getElementById("btn1");
+     const out1 = document.getElementById("output1");
+
+     
+    function fun1()
+     {
+         //if txt1 is not an integer
+         //return error message
+         //if txt1 is less than or equal to 0
+         //return error message
+         //else
+         //write new budget to file and screen
+         if(isNaN(txt1.value)){
+             alert("Please make sure to input a NUMBER into the budget field")
+         }else{
+             if (txt1.value < 5){
+                 alert("Your budget must be £5 minimum!");
+             }else{
+                 out1.innerHTML = "£" + txt1.value;
+             }
+
+         }
+         
+         
+     }
+     btn1.addEventListener('click',fun1);
+   
+     function myFunction() {
+      var rangeValue = document.getElementById("myRange").value;
+     // document.getElementById("demo").innerHTML = rangeValue;
+     
+      var monthlyBudgetValue = document.getElementById("BudgetInput").value;
+     // document.getElementById("demo1").innerHTML = monthlyBudgetValue;
+
+      var totalValue = (monthlyBudgetValue / 100);
+     // document.getElementById("demo2").innerHTML = totalValue;
+
+      var finalOutput = totalValue * rangeValue;
+
+      out1.innerHTML = "£ " + Math.round(finalOutput);
+}
+
+</script>
+<script>
+    
+    
+    </script>
+
+<!-- <script>
+    const out2 = document.getElementById("output1");
+    function fun2() {
+        var numVal1 = Number(document.getElementById("output1").value);
+        var numVal2 = Number(document.getElementById("value").value) / 100;
+        var totalValue = numVal1 - (numVal1 * numVal2);
+        Number(out2.innerText) = '£' + totalValue ;
+    }
+    btn2.addEventListener('click',fun2);
+</script> -->
+<!--script src="js/bootstrap.bundle.min.js" ></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="js/custom.js" ></script>
+
+<script>
+    var globalUserId = 70;
+    function SubmitBudget(){
+        var inputValue = document.getElementById("BudgetInput").value;
+        $.post("http://localhost:8080/newBudget", {amount : parseFloat(inputValue), userId : globalUserId}).done(document.getElementById("BudgetInput").value = "");
+        location.reload();
+        }
+
+    function GetBudget(){
+        $.get("http://localhost:8080/findBudget", {userid : globalUserId}).done(function(Budget){
+            Budget.reverse().forEach(function(output1){
+                 DisplayBudget(output1);
+                })
+            })
+        }
+
+        function DisplayBudget(output1){
+            const line = document.createElement("hr");
+            const para = document.createElement("p");
+            const budgetAmount = document.createTextNode("£" + output1.budgetAmount);
+            para.appendChild(budgetAmount);
+            const budgetAmountList = document.getElementById("output1");
+            budgetAmountList.appendChild(line);
+            budgetAmountList.appendChild(para);
+        }
+
+    function StartUp(){
+        checkNight();
+        GetBudget();
+    }
+    </script> 
+    
+  <body>
+</html>

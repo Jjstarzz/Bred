@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+    .topnav {
+        list-style-type: none;
+        overflow: hidden;
+        background-color: white;
+    }
+    
+    .topitems {
+        float: left;
+        width: 20%;
+        border-bottom: 3px solid grey;
+        border-top: 3px solid grey;
+    }
+
+    .topitems a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        font-family: Verdana, sans-serif;
+        width: 100%;
+        text-decoration: none;
+        font-size:larger;
+    }
+
+    .topitems a:hover {
+        background-color: grey;
+        transition-duration: 0.3s;
+    }
+
+    .searchbar {
+        position: fixed;
+        border-color:grey;
+        border-style: solid;
+        border-radius: 20px;
+        top: 4%;
+        right: 6%;
+        width: 150px;
+        height: 25px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .sideitems {
+        width: 10%;
+    }
+
+    .sideitems a {
+        text-decoration: none;
+        font-family: Verdana, sans-serif;
+        display: block;
+        color: black;
+        text-align: center;
+        font-size: larger;
+    }
+
+    .sideitems a:hover {
+        background-color: grey;
+        transition-duration: 0.3s;
+        text-align: center;
+    }
+
+    .nonsignout {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .signout {
+        position: absolute;
+        bottom: 0.5%;
+        left: 0.5%;
+    }
+
+    .content {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 80%;
+        width: 90%;
+    }
+
+    .img {
+        height: 15%;
+        width: 18%;
+    }
+</style>
+</head>
+<body>
+    
+<div>
+    <img class="img" src="brod.png">
+    <input class="searchbar" type="text">
+</div>
+<div class="topnav">
+    <li class="topitems"><a href="#">Home</a></li>
+    <li class="topitems"><a href="#">Budget</a></li>
+    <li class="topitems"><a href="#">Spending</a></li>
+    <li class="topitems"><a href="#">Summaries</a></li>
+    <li class="topitems"><a href="#">About Us</a></li>
+</div>
+<div class="sideitems">
+    <a class="nonsignout" href="#">Account</a>
+    <a class="nonsignout" href="#">Settings</a>
+    <a class="signout" href="#">Sign Out</a>
+</div>
+<div class="content">
+    
+</div>
+</body>
+</html> 

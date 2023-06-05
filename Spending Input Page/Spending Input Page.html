@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="/CSS/style.css" rel="stylesheet">
+
+    <title>Budget</title>
+  </head>
+  <body>
+
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <!-- <div class="menu">
+                            <i class="bi bi-list"></i>
+                        </div> -->
+                        <div class="logo">
+                            <a href="/HTML/INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="search-holder">
+                        <input type="text" class="searchbox">
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </div>
+                   
+                </div> -->
+
+            </div>
+        </div>
+
+        
+    </header>
+    <!--Header end-->
+
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="/HTML/INDEX.html">Home</a></li>
+            <li><a href="#">Budget</a></li>
+            <li><a href="/HTML//BUDGET.html">Spending</a></li>
+            <li><a href="#">Summaries</a></li>
+            <li><a href="#">About us</a></li>
+        </ul>
+    </div>
+
+     <!--Main Menu end-->
+
+    <!--Body-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <!--Left-sidebar-->
+                <div class="col-md-2 border-right">
+                    <div class="sidebar">
+                        <ul class="list-menu">
+                                <li>
+                                    <a href="/HTML/ACCOUNT.html">Account</a>
+                                </li>
+    
+                                <li>
+                                    <a href="#">Settings</a>
+                                </li>
+                        </ul>
+    
+                        <div class="logout-section">
+                            <ul class="list-menu">
+                                <li> <a href="/HTML/LOGIN.html">Sign Out</a></li>
+                            </ul>
+                            
+                        </div>
+                        </div>
+
+                </div>
+                 <!--Left-sidebar end-->
+
+                <!--Mid-sidebar-->
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+
+                    <div class="card-panel shadow mt-5 mb-3"> <!--Current monthly budget card-->
+                        <h2 class="text-center"></h2>
+                        <h2 class="text-center">Your current monthly budget is</h2>
+                        <h2 id="output1" class="text-center">£</h2>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-outline-dark btn-sm">Adjust</button>
+                        </div>
+                     
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-7"> 
+                            <div class="card-panel shadow mb-3"> <!--Money allocation card-->
+                                <div class="slideContainer">
+                                    <input type="range" min="0" max="100" value="0" id="myRange" class="slider">
+                                    <p>Spending Money : <span id="value"></span></p>
+                                    <p2>Reserved Money : <span id="secondValue"></span></p>
+                                </div>
+                                <div class="text-center">
+                                    <button id="btn2" type="button" class="btn btn-outline-dark btn-sm">Confirm Allocation</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!--Mid-sidebar-->
+
+
+                <!--Right-sidebar-->
+                <div class="col-md-3">
+
+                    <div class="card-panel shadow mt-5 mb-3">
+                    <h4 class="text-center">Enter new budget</h4>
+                    <input id="text1" type="text" class="input-box">
+                    <div class="text-center">
+                        <button id="btn1" type="button" class="btn btn-outline-dark btn-sm">Confirm</button>
+                    </div>
+
+                </div>
+                <!--Right-sidebar end-->
+            </div>
+        </div>
+
+    </section>
+
+    <!--Body end-->
+
+    <!--Footer-->
+    <footer>
+
+    </footer>
+
+     <!--Footer End-->
+
+
+    <script src="js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="js/custom.js" ></script>
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("value"); // Spending Money %
+        var reserved = document.getElementById("secondValue"); // Reserved Money %
+        
+
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value + '%';
+            reserved.innerHTML = 100 - this.value + '%';
+       }
+        slider.addEventListener("mousemove", function(){
+        var x = slider.value;
+        var color = 'linear-gradient(90deg, rgb(15, 13, 13)' + x +'%,rgb(214,214,214)' + x + '%)';
+        slider.style.background = color;
+        })
+
+ </script>
+
+ <script>
+     const txt1 = document.getElementById("text1");
+     const btn1 = document.getElementById("btn1");
+     const out1 = document.getElementById("output1");
+
+     
+     function fun1()
+     {
+         out1.innerHTML = "£" + txt1.value;
+     }
+     btn1.addEventListener('click',fun1);
+
+</script>
+
+<script>
+
+    const out2 = document.getElementById("output1");
+    function fun2() {
+        var numVal1 = Number(document.getElementById("output1").value);
+        var numVal2 = Number(document.getElementById("value").value) / 100;
+        var totalValue = numVal1 - (numVal1 * numVal2);
+
+        Number(out2.innerText) = '£' + totalValue ;
+    }
+    btn2.addEventListener('click',fun2);
+
+
+</script>
+   
+  </body>
+  
+</html>

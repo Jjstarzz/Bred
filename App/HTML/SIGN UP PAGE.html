@@ -1,0 +1,74 @@
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet"> 
+    <!--Registration JQuery file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/registration.js"></script>
+  </head>
+  <body onload="checkNight()">
+    <!--Header-->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row  align-items-center">
+                <div class="col-md-8">
+                    <div class="logo-menu">
+                        <div class="logo">
+                            <a href="INDEX.html">
+                                <img src="https://cdn.discordapp.com/attachments/905120820198772826/939869460985184296/logo.png" width="100" height="auto" alt="logo" id="logo">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <!--Header end-->
+    <!--Main Menu-->
+    <div class="nav-menu">
+        <ul class="main-menu">
+            <li><a href="#" onclick="alert('You need to log-in first');">Home</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Budget</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Spending</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">Summaries</a></li>
+            <li><a href="#" onclick="alert('You need to log-in first');">About us</a></li>
+        </ul>
+    </div>
+    <!-- Sign Up Page -->
+    <form action = "#" method="post" enctype="utf8">
+        <h1>Sign Up</h1>
+        <div class = "errormessage"></div>
+        <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email...">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="exampleUsername1" aria-describedby="emailHelp" placeholder="Username...">
+            <small id="username" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password...">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="ConfirmInputPassword1" placeholder="Confirm password...">
+        </div>
+        <input type="button" class="btn btn-primary" name="createaccount" id="createaccount" value="Create Account">
+        <a href='LOGIN.html'; style="margin:10px;" class="btn btn-primary2" id="backtologin" >Back to Log In</a>
+    </form>
+    <button class ="nightmodebutton" onclick="darkMode()">
+        <img src="..//nightmodeicon.png" width="25" height="25";>
+    </button>
+     
+    <div class ="watermark">Bred™ 2022</div>
+
+    <!--<script src="js/bootstrap.bundle.min.js" ></script> -->
+    <script src="js/custom.js"></script>
+    </body>
+    
+</html> 
